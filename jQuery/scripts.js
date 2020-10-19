@@ -40,28 +40,19 @@ $('#btn3').click(function (hamburger) {
 
 
 //When the button is clicked, add each friend's name as an li to the ul on the page.
-const friendsArray = ['Erin', 'Caroline', 'Joe', 'Ariana', 'Winnie', 'Odin', 'Martha', 'Jim', 'Brianna', 'Katie'];
+const friends = ['Erin', 'Caroline', 'Joe', 'Ariana', 'Winnie', 'Odin', 'Martha', 'Jim', 'Brianna', 'Katie'];
 
+let friendIdx = 0;
 
-const counter = 0;
-
-$('btn4').click(function (e) {
-    friendsArray = counter;
-    counter++;
-    $('li').append(counter);
-        $('ul').append('<li></li>');
-        e.preventDefault();
+$('#btn4').click(function (e) {
+    e.preventDefault();
+    if (friendIdx < friends.length) {
+        const friendName = friends[friendIdx];
+        friendIdx++;
+        const friendArray = $('<li>' + friendName + '</li>');
+        $('ul').append(friendArray);
+        
+    }
 })
 
 
-/*  WRONG
-const friendsArrayLoop = (e) => {
-    for (let friends of friendsArray) {
-        friendsArrayText = friends;
-        $('li').append(friendsArrayText);
-        $('ul').append('<li></li>');
-        e.preventDefault();
-    }   
-}
-$('#btn4').click(friendsArrayLoop);
-*/

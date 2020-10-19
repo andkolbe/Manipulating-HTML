@@ -10,7 +10,6 @@ btn.addEventListener('click', function () {
 
 
 //When the button is clicked, display an alert with the message that is typed in the text box
-
 const btn2 = document.getElementById('button2');
 const btnTextAlert = document.getElementsByTagName('input').value;
 btn2.addEventListener('click', function () {
@@ -56,34 +55,26 @@ btn3.addEventListener('click', function (hamburger) {
 
 
 //When the button is clicked, add each friend's name as an li to the ul on the page.
-const friendsArray = ['Erin', 'Caroline', 'Joe', 'Ariana', 'Winnie', 'Odin', 'Martha', 'Jim', 'Brianna', 'Katie'];
+const friends = ['Erin', 'Caroline', 'Joe', 'Ariana', 'Winnie', 'Odin', 'Martha', 'Jim', 'Brianna', 'Katie'];
 
 const btn4 = document.getElementById('button4');
 const ul = document.getElementsByTagName('ul')[0];
 const li = document.createElement('li');
 
-const counter = 0;
+let friendIdx = 0;
 
 btn4.addEventListener('click', function (e) {
-    friendsArray = counter;
-    counter++;
-    li.appendChild(counter);
+    const friendName = friends[friendIdx];
+    e.preventDefault();
+    if (friendIdx < friends.length) {
+        friendIdx++;
+        li.appendChild(friendName);
         ul.appendChild(li);
-        e.preventDefault();
+        
+    }
 })
 
-/*  WRONG
-const friendsArrayLoop = (e) => {
-    for (let friends of friendsArray) {
-        friendsArrayText = document.createTextNode(friends);
-        li.appendChild(friendsArrayText);
-        ul.appendChild(li);
-        e.preventDefault();
-    }    
-}
-btn4.addEventListener('click', friendsArrayLoop);
-*/
-    
+
 
 
 
